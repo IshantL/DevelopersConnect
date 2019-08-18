@@ -51,15 +51,12 @@ router.post('/',[ check('name', 'Name is required').not().isEmpty(),
       }
     }
 
-    jwt.sign(payload, config.get('jwtToken'),
+    jwt.sign(payload, config.get('jwtSecret'),
     {expiresIn: 360000},
     (err,token) =>{
       if(err) throw err;
       res.json({token});
     });
-
-    res.send('User Registered'),
-    console.log(req.body);
 
   } catch(err){
     console.error(err.message);
