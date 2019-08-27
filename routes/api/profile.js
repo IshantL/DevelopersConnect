@@ -3,6 +3,7 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const {check, validationResult} = require('express-validator/check');
 
 //@route   GET api/profile/me
 //@desc    Get Current users profile
@@ -24,4 +25,13 @@ router.get('/me', auth,async(req, res) => {
     }
 });
 
+//@route   POST api/profile/
+//@desc    Create or update user profile
+//@access  Private
+
+router.post('/',[auth,[
+    check('status')
+]],(req,res)=>{
+
+})
 module.exports = router;
