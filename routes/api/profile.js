@@ -30,8 +30,18 @@ router.get('/me', auth,async(req, res) => {
 //@access  Private
 
 router.post('/',[auth,[
-    check('status')
-]],(req,res)=>{
+    check('status','status is required')
+    .not()
+    .isEmpty(),
+    check('skills','skills is required')
+    .not()
+    .isEmpty()
+]],async (req,res)=>{
+    const errors = validationResult(req);
+    if(!errors.isEmpty()){
+        return res.status(400).json({errors: errors.arrray()})
+    }
 
+    
 })
 module.exports = router;
