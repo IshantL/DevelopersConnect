@@ -14,6 +14,7 @@ if(!token){
 //verify token
 try{
     const decoded = jwt.verify(token, config.get('jwtSecret'));
+    console.log("middleware");
     req.user = decoded.user;
     next();
 } catch(err){
