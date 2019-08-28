@@ -13,4 +13,5 @@ Here we are creating API for fetching user profile, so when user wants to fetch 
 For authentication here we are creating a middleware auth.js that verifies user token.
 
 How the token generated?
-We used jet for that, when we login in our application we are creating a token and return that, by using that token as header paramas user can make get request to the server.
+
+We used jwt for that, when we login in our application we are creating a token and return that, by using that token as header paramas user can make get request to the server.
